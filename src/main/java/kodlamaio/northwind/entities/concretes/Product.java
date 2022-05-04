@@ -16,9 +16,6 @@ public class Product {
     @Column(name = "product_id")
     private int id;
 
-    @Column(name = "category_id")
-    private int categoryId;
-
     @Column(name = "product_name")
     private String productName;
 
@@ -31,9 +28,12 @@ public class Product {
     @Column(name = "quantity_per_unit")
     private String quantityPerUnit;
 
-    public Product(int id, int categoryId, String productName, double unitPrice, short unitsInStock, String quantityPerUnit){
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Product(int id, String productName, double unitPrice, short unitsInStock, String quantityPerUnit){
         this.id= id;
-        this.categoryId = categoryId;
         this.productName = productName;
         this.unitsInStock = unitsInStock;
         this.unitPrice = unitPrice;
