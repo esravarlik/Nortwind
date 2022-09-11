@@ -29,7 +29,6 @@ public class UsersController {
     //300
     //400: error
     //500
-
     @PostMapping(value="/add")
     public ResponseEntity<?> add(@RequestBody User user){
         return ResponseEntity.ok(this.userService.add(user));
